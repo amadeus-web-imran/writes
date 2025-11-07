@@ -1,19 +1,51 @@
 <?php
-function renderMetaPage($groupBy) {
-	contentBox('people', 'container');
+DEFINE('TAXONOMY', 'site-taxonomy');
+
+variable(TAXONOMY, [
+	'works' => 'Work',
+	'collections' => 'Collection',
+	'categories' => 'Category',
+	//'for-person' => 'Dedication',
+	//remove?
+	'for' => 'Dedication',
+	//'people' => 'Dedication',
+]);
+
+function renderMetaPage($slug) {
+	$name = getQueryParameter('name');
+
+	echo '<hr class="m-2" />';
+	$suffix = $name ? ' &mdash;> ' . humanize($name) : '';
+	printSpacer(humanize(variable(NODEVAR)) . $suffix);
+
+	contentBox($slug, 'container');
+
+	$tax = variable(TAXONOMY);
+	if (!isset($tax[$slug])) showDebugging('cms.php', 'TAXONOMY for ' . $slug . ' not defined', true);
+	$groupBy = $tax[$slug];
 
 	$sheet = getSheet('sitemap', $groupBy);
 	variable('sheet', $sheet);
 
 	$op = [];
+
+	if ($name) echo getLink(' == ALL == ', pageUrl($slug), 'btn btn-primary');
+
 	foreach ($sheet->group as $key => $rows) {
+		$text = humanize($key);
+		$url = urlize($key);
+
+		if ($name && $name != $url) continue;
 		$count = '<span class="float-right">Count: ' . count($rows) . '</span>';
-		$res = h2(getLink($count . humanize($key), pageUrl('for/' . urlize($key))), '', true);
-		$res .= NEWLINE . implode(NEWLINE . ' // ', array_map(function($piece) { 
+		$title = getLink($count . $text, pageUrl($slug . '/' . $url));
+		$onlyMe = getLink('**', pageUrl($slug . '/?name=' . $url), 'btn btn-outline-info');
+		$res = h2($title . ' &mdash; ' . $onlyMe, '', true);
+		$res .= NEWLINE . implode(NEWLINE, array_map(function($piece) { 
 			$sheet = variable('sheet');
 			return getLink($sheet->getValue($piece, 'SNo') . ' ' . $sheet->getValue($piece, 'Name'),
-				$link = pageUrl(urlize($sheet->getValue($piece, 'Name'))))
-				. ' ' . getLinkWithCustomAttr('**', $link . '?content=1', ' data-lightbox="iframe"'); 
+				$link = pageUrl(urlize($sheet->getValue($piece, 'Name'))), 'btn btn-outline-info m-2 ms-0')
+				. ' ' . getLinkWithCustomAttr('**', $link . '?content=1', ' data-lightbox="iframe" class="btn btn-outline-info"')
+				. ' ' . $sheet->getValue($piece, 'Description') . BRTAG;
 		}, $rows));
 
 		$res .= cbCloseAndOpen('container');
@@ -41,6 +73,11 @@ function before_file() {
 	if (variable('hasPiece')) {
 		printPiece(variable('currentPiece'), 'before');
 	} else if (variable('hasPieces')) {
+		echo '<hr class="m-2" />';
+		$pp1 = getPageParameterAt();
+		$suffix = $pp1 ? ' &mdash;> ' . humanize($pp1) : '';
+		printSpacer(humanize(variable(NODEVAR)) . $suffix);
+
 		$count = count(variable('currentPieces'));
 		foreach (variable('currentPieces') as $ix => $item)
 			printPiece($item, 'during', $ix + 1 . '/' . $count);
@@ -62,7 +99,7 @@ function after_file() {
 			contentBox('', 'container standout');
 			printH1InDivider('Deep Dive with Copilot');
 			variable('no-content-boxes', true);
-			autoRender($md, 'engage');
+			builtinOrRender($md, 'engage');
 			clearVariable('no-content-boxes');
 			contentBox('end');
 		}
@@ -121,11 +158,7 @@ function site_before_render() {
 	$section = variable('section');
 	$node = variable('node');
 
-	if (!in_array($section, ['tech', 'more', 'with-ai']))
-		//&&	!in_array($node, ['2020', '2021', 'archives', 'ideas', 'ideas2']) )
-		return;
-
-	if ($section == $node) return;
+	if (true || $section == $node) return;
 
 	DEFINE('NODEPATH', SITEPATH . '/' . variable('section') . '/' . $node);
 	variables([
@@ -157,12 +190,14 @@ function _getWorkType($item) {
 //1 - piece checking happens here
 function beforeSectionSet() {
 	$node = variable('node');
-	$piece = in_array($node, ['all', 'poems', 'prose']);
-	$alias = in_array($node, ['works', 'collections', 'categories', 'for']);
+
+	$tax = variable(TAXONOMY);
+	$isPseudo = in_array($node, ['all', 'poems', 'prose']);
+	$isTax = in_array($node, array_keys($tax));
 
 	$byWork = getSheet('sitemap', 'Work');
 
-	if (!$piece && !$alias) {
+	if (!$isPseudo && !$isTax) {
 		$sheet = getSheet('sitemap', 'Name', true);
 
 		if (!isset($sheet->group[$node]))
@@ -193,25 +228,25 @@ function beforeSectionSet() {
 
 	if ($node == 'works')
 		$sheet = $byWork;
-	else if ($node == 'collections')
-		$sheet = getSheet('sitemap', 'Collection');
-	else if ($node == 'categories')
-		$sheet = getSheet('sitemap', 'Category', true);
-	else if ($node == 'for')
-		$sheet = getSheet('sitemap', 'Dedication', true);
-	else if ($piece)
+	else if (array_key_exists($node, $tax))
+		$sheet = getSheet('sitemap', $tax[$node], true);
+	else if ($isPseudo)
 		$sheet = getSheet('sitemap', false);
 
 	$on = getPageParameterAt(1);
 
-	if ($alias && !isset($sheet->group[$on]))
-		return false;
+	if ($isTax) {
+		if (!isset($sheet->group[$on]))
+			return false;
+		if ($on)
+			variable('skip-content-render', true);
+	}
 
-	$items = $piece ? $sheet->rows : $sheet->group[$on];
+	$items = $isPseudo ? $sheet->rows : $sheet->group[$on];
 	$pieces = [];
 	foreach ($items as $item) {
 		$obj = getEnrichedPieceObj($item, $sheet);
-		if ($piece && $node != 'all' && $node != $obj['Type']) continue;
+		//if ($piece && $node != 'all' && $node != $obj['Type']) continue;
 		$pieces[] = $obj;
 	}
 
@@ -225,6 +260,7 @@ function beforeSectionSet() {
 }
 
 function getParentSlug($sectionFor) {
+	if (getPageParameterAt(1)) return '';
 	$piece = in_array($sectionFor, ['poems', 'prose', 'essays']);
 	if ($piece) return $sectionFor;
 	

@@ -1,2 +1,2 @@
 <?php
-renderMetaPage('Collection');
+renderMetaPage(pathinfo(__FILE__, PATHINFO_FILENAME));

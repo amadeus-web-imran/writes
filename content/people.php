@@ -1,2 +1,0 @@
-<?php
-renderMetaPage('Dedication');
