@@ -1,4 +1,5 @@
 <?php
+setup_cdn('people/imran/');
 function did_site_render_page() {
 	if (variable('hasPiece')) {
 		renderAny(variable('file'));
@@ -27,6 +28,10 @@ function before_file() {
 function after_file() {
 	if (variable('hasPiece')) {
 		$current = variable('currentPiece');
+
+		$imgStart = '<div class="container text-center after-content p-3 mb-3 rounded-3 img-max-800"><img class="img-fluid img-max-600" src="'; $imgEnd = '" /></div>' . NEWLINE;
+		$img = disk_file_exists(SITECDNPATH . ($jpg = 'writing/pieces/' . urlize($current['Name']) . '.jpg')) ? getHtmlVariable('cdn') . $jpg  : false;
+		if ($img) echo $imgStart . $img . $imgEnd;
 
 		$onlyMain = getQueryParameter(VARQueryContent);
 		if (!$onlyMain && $item = variable('nextPiece'))

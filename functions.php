@@ -44,8 +44,7 @@ function renderMetaPage($slug) {
 		$count = '<span class="float-right">Count: ' . count($rows) . '</span>';
 		$title = getLink($count . $text, pageUrl($slug . '/' . $url));
 		$onlyMe = getLink('**', pageUrl($slug . '/?name=' . $url), 'btn btn-outline-info');
-		$img = $wantsImg && disk_file_exists(SITEPATH . '/assets/cdn/' . 
-			($jpg = 'taxonomy/' . $slug . '-' . $url . '.jpg')) ? $imgStart . getHtmlVariable('cdn') . $jpg . $imgEnd : '';
+		$img = $wantsImg && disk_file_exists(SITECDNPATH . ($jpg = 'writing/' . $slug . '-' . $url . '.jpg')) ? $imgStart . getHtmlVariable('cdn') . $jpg . $imgEnd : '';
 		$res = $img . h2($title . ' &mdash; ' . $onlyMe, '', true);
 
 		if (!$headings) $res .= NEWLINE . implode(NEWLINE, array_map(function($piece) {
@@ -72,7 +71,7 @@ function printPiece($item, $where, $xofy = false, $relative = '') {
 	contentBox('', 'container');
 	if ($relative) echo '<span class="right-button">' . $relative . '</span>';
 
-	$heading = '<!--noop-->' . $item['SNo'] . '. ' . ($name = $item['Name']);
+	$heading = '<!--noop-->' . $item['SNo'] . '. ' . $item['Name'];
 	if ($where != 'before') $heading = getLink($heading, urlFromSlugs($item['Name']));
 
 	if ($xofy) echo '<span style="float: right">' . $xofy . '</span>';
@@ -88,8 +87,6 @@ function printPiece($item, $where, $xofy = false, $relative = '') {
 		'<label>Work: </label> ' . getLink(_getTaxonomyText($item['Work'], 'work'), urlFromSlugs('works', $item['Work'])),
 		'<label>Rhymes: </label> ' . $item['RhymeScheme'],
 	]) . NEWLINE . '</li></div>' . BRNL;
-
-	//TODO: if matching image / meta
 
 	if ($where != 'before')
 		contentBox('end');
