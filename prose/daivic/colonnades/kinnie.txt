@@ -1,6 +1,6 @@
-Imran, 12th May 2018 - inspired by <a href="../curious-lives/">Kinnie</a>, once mentioned <a href="../charter/">here in 2015</a> and of course <a href="https://legacy.yieldmore.org/works/niggle/">Niggle</a> (that alter-ego of Prof. Tolkien.
+Imran, 12th May 2018 - inspired by <a href="%url%curious-lives/">Kinnie</a>, once mentioned <a href="%url%charter/">here in 2015</a> and of course <a href="https://archives.joyfulearth.org/works/niggle/">Niggle</a> (that alter-ego of Prof. Tolkien).
 
-Chapter 1 - Niggle
+Chapter 1 - Niggle (Her Parents Meet)
 
 Many years before Niggle had taken to painting he had been in the war.
 
@@ -25,5 +25,6 @@ Later as they lay entwined, she held her stomach with much delectable mirth and 
 
 But their brief haven would soon be despoiled. War broke out and he was forced to move on and her village ransacked and she fled far away. Long days he spent on his return looking for her, but fate never had it that they would meet again.
 
-Chapter 2 - Cassie
+---
 
+[canva]DAHFlL9Emv8/Rmhm4qYjkSxswoChYpfNWQ[/canva]

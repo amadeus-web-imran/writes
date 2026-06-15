@@ -1,0 +1,53 @@
+#slug	Title	Description	Group
+|is-table-with-template
+||no-content-box: yes
+||use-a-bootstrap-row: yes
+||use-a-custom-head: yes
+||head-template: ALLARTICLES-HAUTO
+||bs-use-enricher: yes
+||bs-template: ARTICLE-HAUTO-BOX<h3>%Title%</h3><img class="img-fluid" title="%slug%" src="%cdn%%nodeItem%/%slug%.jpg" /> JUSTBR%Description% <hr /><div class="text-end fs-italic">%Group%</div>ARTICLE-CLOSE
+
+authors-umsy	Imran's Mother		People
+work-ganymede	Ganymede		Concepts
+creativity-yantra	My First Mandala		Creativity
+mystic-crown	Crown Chakra		Old Indic Wisdom
+
+books-hurin-jrrt	My Hero Hurin		Characters
+devotional-viswarapua	Lord Krishna		Godliness
+networks-kalki	AuroSpaces.org		Concepts
+orgs-acc	Aeon Centre		Old Indic Wisdom
+
+help-triad	Need to Help		Concepts
+families-shayesteh	Family Tree		Features
+networks-tgp	Goodness in All		Programs
+networks-consortium	Consortium		Concepts
+
+work-tech-soul	AW Spring		Providers
+networks-dawn	Intention is Key		Concepts
+work-sunlit-path	Sunlit Path		Concepts
+programs-att	Aspire to Thrive		Programs
+
+people-imran-italy	Imran 2010		Providers
+programs-wordplay	Emote Express		Programs
+programs-owl	WiseOwls.life		Programs
+work-iviewer-2026	IViewer 2026		Providers
+
+shops-av-art-gallery	AV Art Gallery		Old Indic Wisdom
+people-imran	Imran 2025		People
+people-imran-griefstruck	Imran 2019		Writing
+programs-2-hearts	Heartfulness		Writing
+
+programs-happy	Happiness		Programs
+programs-spartacus	Spartacus the Kuru		Programs
+curate-remy	Rat patootie!		Characters
+programs-why-we-didnt-fail	Spartacus Wins		Programs
+
+work-ganymede-gani	Gani & Sons		Providers
+people-imran-visa	Imran 2013		People
+work-iviewer	IViewer 2000		Providers
+work-old-logo	AW 2021/22		Providers
+
+authors-lee	Author Feedback		Opus
+book-adult-children	Adult Children		Concepts
+families-inara	Imran's Niece		People
+orgs-mane	MA Namazi		People
