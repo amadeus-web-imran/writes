@@ -109,6 +109,9 @@ function _getTaxonomyText($val, $type) {
 
 //sets inner node for more/with-ai/
 function site_before_render() {
+	if (sectionIs('books'))
+		autosetPageMenu([VARDontOverwriteLogo => true, VARLinkToNodeHome => true]);
+
 	if (getQueryParameter(VARQueryContent)) {
 		add_body_class(cssUX::pt4);
 		setSubTheme(VARSubthemeContentOnly);
