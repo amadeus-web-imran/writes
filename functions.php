@@ -68,7 +68,7 @@ function renderMetaPage($slug) {
 //retain .txt and use .md for the deep dives
 
 function printPiece($item, $where, $xofy = false, $relative = '') {
-	contentBox('', 'container');
+	if ($where != 'embed') contentBox('', 'container');
 	if ($relative) echo '<span class="right-button">' . $relative . '</span>';
 
 	$heading = '<!--noop-->' . $item['SNo'] . '. ' . $item['Name'];
@@ -88,8 +88,10 @@ function printPiece($item, $where, $xofy = false, $relative = '') {
 		'<label>Rhymes: </label> ' . $item['RhymeScheme'],
 	]) . NEWLINE . '</li></div>' . BRNL;
 
-	if ($where != 'before')
+	if ($where != 'before' && $where != 'embed')
 		contentBox('end');
+
+	if ($where == 'embed') renderAny($item['File']);
 }
 
 function _getTaxonomyText($val, $type) {

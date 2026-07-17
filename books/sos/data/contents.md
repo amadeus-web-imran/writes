@@ -1,3 +1,13 @@
+<!--title-->
+
+<img src="%node-assets%books-alliances--imran.jpg" class="img-max-500 img-fluid" />
+
+## Save Our Souls JUSTBR _AOPs to Catalyse Change_ JUSTBR JUSTBR Imran Ali Namazi JUSTBR	 JUSTBR _The Story of the JUSTBR Dynamic AmadeusWeb JUSTBR Network &mdash; DAWN_
+
+---
+
+## Preface
+
 In this collection of Essays, Poems, Resources and Howtos, Imran Ali Namazi will explain how Compassionate Souls can be deployed to any part of the Human Theater, to fight for change and justice for any cause, starting with
 
 1. Unfettered and Uncompromised Work Ethos
@@ -16,7 +26,13 @@ AOP, short for Action Oriented Project, the executive arm of The Goodness Projec
 
 &hellip;a call to the elusive, perfect life.
 
-<!--link/1/link-->
+<!--embed/1/embed-->
+
+---
+
+<!--title-->
+
+# <u>Section 1</u><br /> An Unfettered and Uncompromised Work Ethos
 
 ---
 
@@ -28,7 +44,7 @@ Labour coercion. 100 situations where my friends in IT - which cuts across every
 
 Lets summarize with: Type of coercion, how it plays out, how justice was wreaked, what was the shift in motives and perspectives, how all round social health was restored.
 
-<!--link/2/link-->
+<!--link/1-01/link-->
 
 ---
 
@@ -46,7 +62,7 @@ That's why the task force and the grafting teams exist. They've seen the dregs, 
 
 Long live the growth and healing space
 
-<!--link/3/link-->
+<!--link/1-02/link-->
 
 ---
 
@@ -57,7 +73,7 @@ Prompt:
 Can you root cause the 100 examples you gave, extrapolate it to 500 and give me numbers and 10 broad root causes.
 I pity the new generations whose parents sold out family and social welfare to King Rat.
 
-<!--link/4/link-->
+<!--link/1-03/link-->
 
 ---
 
@@ -71,7 +87,7 @@ Lets unleash the trojan horse first.
 
 May 2026 —> For —> Work
 
-<!--link/5/link-->
+<!--link/1-04/link-->
 
 ---
 
@@ -93,13 +109,15 @@ Does work have to be a drag? Are we falling prey to unnecessary clutter?
 
 How honest are you in the mirror or with your journal?
 
+<!--page-break-->
+
 Would you like to make friends with an intense, fun loving, bumbling guy who let's poetry and dreams dribble from his lips? Would you invite him to your home and let him just listen?
 
 What dreams have you still, and if there was a way to make the time, what would you do with it?
 
 Are you really OK? Wouldn't it be nice to have more growth and healing spaces where we all go for a daily recharge?
 
-<!--link/6/link-->
+<!--link/1-05/link-->
 
 ---
 
@@ -111,7 +129,7 @@ My technical credentials. The CV is soo standard and boring, you'd shut down mid
 
 Who Am I —> The Technologist — 1994 to 2022
 
-<!--link/7/link-->
+<!--link/1-06/link-->
 
 ---
 
@@ -125,7 +143,7 @@ I wrote this for the pillars whose consultants are so lazy that they only know w
 
 May 2026 —> For —> Pillars
 
-<!--link/8/link-->
+<!--link/1-07/link-->
 
 ---
 
@@ -143,7 +161,7 @@ Content is never lost since ours is a file based cms backed up to git. We handle
 
 So a website is really a 3 year outline of what sorts of content is needed, to support which areas and activities and then built iteratively.
 
-<!--link/9/link-->
+<!--link/1-08/link-->
 
 ---
 
@@ -155,4 +173,4 @@ Growth and Healing spaces by teams for teams.
 
 A dedicated space for honest reflection, mutual support and social work, where the cares of the day are not only washed away, but root caused and actively stamped out by the task force.
 
-<!--link/10/link-->
+<!--link/1-09/link-->
