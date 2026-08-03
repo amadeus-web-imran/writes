@@ -24,10 +24,10 @@ Could help us shift the conversation back to love.
 Then we will all know what religion is all about - loving each other!
 
 
-*Dedication - https://imran.yieldmore.org/poems/for/msa/
-*Propaganda - https://imran.yieldmore.org/religious-appeal/
-*1 https://imran.yieldmore.org/dear-mother/
+*Dedication - %url%for/msa/
+*Propaganda - %url%religious-appeal/
+*1 %url%dear-mother/
 *2 https://yieldmore.org/wisdom/spirit/
 *3 https://legacy.yieldmore.org/songs/imagine/
 *4 https://archives.yieldmore.org/unity-postscript-1949/
-*5 https://imran.yieldmore.org/prose/collection/imagine/
+*5 %url%collections/imagine/

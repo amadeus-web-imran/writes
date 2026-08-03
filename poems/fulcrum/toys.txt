@@ -28,6 +28,6 @@ Time to fulfill destiny, overflow with joy and warm, tender banter
 * 3 - EG - search gunas
 * 4 - Ahimsa - Gandhi's philosophy of non-violence
 * 5 - Toys - https://en.wikipedia.org/wiki/Toys_(film)
-* 6 - Poem - https://imran.yieldmore.org/turn-that-page/
+* 6 - Poem - %url%turn-that-page/
 * 7 - Curious Lives
 <!--TODO: Links-->
