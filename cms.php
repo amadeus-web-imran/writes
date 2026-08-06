@@ -1,5 +1,8 @@
 <?php
-setup_cdn('people/imran/');
+setup_cdn();
+if (nodeIs(SITEHOME))
+	setHtmlVariable(VARWelcomeMessage, getSnippet('welcome'));
+
 function did_site_render_page() {
 	if (variable('hasPiece')) {
 		renderAny(variable('file'));
