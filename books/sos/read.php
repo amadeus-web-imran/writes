@@ -37,7 +37,7 @@ foreach ($links->rows as $item) {
 }
 
 contentBox('', $pageClass . $titleClass);
-$settings = ['plainReplaces' => $breakReplaces, '2ndPassPlainReplaces' => $linkReplaces];
+$settings = [replacer::plainReplaces => $breakReplaces, replacer::secondPassPlain => $linkReplaces];
 foreach ($pages as $ix => $item) {
 	$title = contains($item, '<!--title-->');
 	if ($ix != 0) echo cbCloseAndOpen($pageClass . ' new-page' . ($title ? $titleClass : ''))

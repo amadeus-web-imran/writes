@@ -6,7 +6,7 @@ $titleClass = ' text-center title-page';
 $breakReplaces = !$printMode ? [] : ['<p><!--page-break--></p>' => $breakWith = '&hellip; continued</div><div class="new-page ' . $pageClass . '">', '<!--page-break-->' => $breakWith];
 
 contentBox('', $pageClass . $titleClass);
-$settings = ['plainReplaces' => $breakReplaces];
+$settings = [replacer::plainReplaces => $breakReplaces];
 foreach ($pages as $ix => $item) {
 	$title = contains($item, '<!--title-->');
 	if ($ix != 0) echo cbCloseAndOpen($pageClass . ' new-page' . ($title ? $titleClass : ''))
